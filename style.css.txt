@@ -1,0 +1,14 @@
+body {
+  font-family: Arial;
+  direction: rtl;
+  background: #f0f0f0;
+  padding: 20px;
+}
+
+button {
+  padding: 10px;
+  background: teal;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
