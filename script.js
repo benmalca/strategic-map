@@ -32,3 +32,20 @@ function toggleDone(focusIndex, taskIndex, milestoneIndex) {
   m.done = !m.done;
   render();
 }
+
+function render() {
+  let out = "";
+  focusAreas.forEach((f, i) => {
+    out += `<h2>🧭 ${f.name} <button onclick="addTask(${i})">+ משימה</button></h2>`;
+    f.tasks.forEach((t, j) => {
+      out += `<div style="margin-right:20px">📌 ${t.title} <button onclick="addMilestone(${i}, ${j})">+ אבן דרך</button><ul>`;
+      t.milestones.forEach((m, k) => {
+        let check = m.done ? "✅" : "⬜";
+        out += `<li onclick="toggleDone(${i}, ${j}, ${k})">${check} ${m.desc} (${m.due})</li>`;
+      });
+      out += "</ul></div>";
+    });
+  });
+
+  document.getElementById("output").innerHTML = out;
+}
